@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    private Long id;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -30,11 +30,11 @@ public class User {
 
     //Getters and setters
     public Long getUser_id() {
-        return user_id;
+        return id;
     }
 
     public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+        this.id = user_id;
     }
 
     public String getUsername() {

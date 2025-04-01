@@ -31,7 +31,7 @@ public class Patient extends User{
         return name;
     }
 
-    public void setFirst_name(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
