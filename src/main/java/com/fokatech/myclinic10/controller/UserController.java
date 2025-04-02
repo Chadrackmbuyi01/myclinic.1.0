@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/users")
 public class UserController {
 
-    @Autowired
+
     private UserService userService;
 
     @GetMapping
@@ -25,8 +25,13 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
+//    @PostMapping
+//    public ResponseEntity<User> createUser(@RequestBody User user){
+//        return ResponseEntity.ok(userService.createUser(user));
+//    }
+
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user){
+    public ResponseEntity<User> registerUser(@RequestBody User user){
         return ResponseEntity.ok(userService.createUser(user));
     }
 

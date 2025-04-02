@@ -3,6 +3,7 @@ package com.fokatech.myclinic10.service;
 import com.fokatech.myclinic10.model.User;
 import com.fokatech.myclinic10.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,8 +11,10 @@ import java.util.Optional;
 
 @Service
 public class UserService {
-    @Autowired
+
     private UserRepository userRepository;
+
+    private PasswordEncoder passwordEncoder;
 
     public List<User> getAllUsers(){
         return userRepository.findAll();
@@ -35,6 +38,7 @@ public class UserService {
         if (user.getUsername() == null || user.getPassword() == null){
             throw new IllegalArgumentException("Username and password are required");
         }
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 
